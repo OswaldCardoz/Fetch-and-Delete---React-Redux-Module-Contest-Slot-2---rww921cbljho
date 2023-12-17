@@ -1,17 +1,17 @@
 import { useContext } from "react";
 import { AuthContext } from "./_app";
 
-function DataItem({ }) {
-    const { } = useContext(AuthContext);
+function DataItem({ data,onDelete}) {
+    const {msg } = useContext(AuthContext);
 
     return (
         <div className="data">
-            <div></div>
-            <div>Bus Name: </div>
-            <div>/-</div>
-            <div>From: </div>
-            <div>To: </div>
-            <button>Delete</button>
+            <div>{data.id}</div>
+            <div>Bus Name: {data.busName}</div>
+            <div>{data.ticketPrice}/-</div>
+            <div>From: {data.source}</div>
+            <div>To: {data.destination}</div>
+            <button onClick={onDelete} disabled={msg !== ""}>Delete</button>
         </div>
     );
 }
